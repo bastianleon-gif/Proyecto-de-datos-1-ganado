@@ -3,8 +3,9 @@ import matplotlib.pyplot as plt
 import os
 import random
 import matplotlib.patches as patches
-
+import numpy as np 
 def visualizar_etiquetas_yolo(ruta_imagen, ruta_etiqueta):
+    print("ruta_imagen: ",ruta_imagen)
     if not os.path.exists(ruta_imagen):
         print(f"Error: No se encontró la imagen en {ruta_imagen}")
         return
@@ -51,11 +52,11 @@ def visualizar_etiquetas_yolo(ruta_imagen, ruta_etiqueta):
     plt.show()
 
 if __name__ == "__main__":
-    base_path = r'PONER-RUTA-DONDE-ESTAN-LAS-IMAGENES-Y-ETIQUETADOS'
+    base_path = r'C:\Users\cripe\Desktop\GANADO'
     
     # Definimos rutas
-    images_path = os.path.join(base_path, 'images', 'train')
-    labels_path = os.path.join(base_path, 'labels', 'train')
+    images_path = os.path.join(base_path, 'images', 'val')
+    labels_path = os.path.join(base_path, 'labels', 'val')
 
     # Validar que existan las carpetas
     if not os.path.exists(labels_path):
@@ -79,6 +80,20 @@ if __name__ == "__main__":
             
             if imagen_correspondiente:
                 print(f"Abriendo archivo etiquetado: {txt_elegido}")
+                data = np.loadtxt( os.path.join(labels_path, txt_elegido))
+                count =0
+                while len(data)==0 and count<500:
+                    count +=1
+
+                    txt_elegido = random.choice(etiquetas)
+                    nombre_base = os.path.splitext(txt_elegido)[0]
+
+                    for ext in ['.jpg', '.jpeg', '.png', '.JPG']:
+                        posible_img = os.path.join(images_path, nombre_base + ext)
+                        if os.path.exists(posible_img):
+                            imagen_correspondiente = posible_img
+                            break
+                    data = np.loadtxt( os.path.join(labels_path, txt_elegido)) 
                 visualizar_etiquetas_yolo(imagen_correspondiente, os.path.join(labels_path, txt_elegido))
             else:
                 print(f"Se encontró la etiqueta {txt_elegido} pero no su imagen en {images_path}")
