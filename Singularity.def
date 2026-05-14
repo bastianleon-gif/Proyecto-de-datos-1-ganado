@@ -1,0 +1,14 @@
+Bootstrap: docker
+From: ultralytics/ultralytics:latest
+
+%post
+    # Actualizar pip e instalar dependencias específicas si necesitas
+    pip install --upgrade pip
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+    
+%environment
+    export LC_ALL=C
+    export CUDA_HOME=/usr/local/cuda
+
+%runscript
+    exec yolo "$@"
