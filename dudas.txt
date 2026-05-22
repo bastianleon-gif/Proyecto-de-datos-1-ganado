@@ -1,0 +1,8 @@
+  La diferencia entre yolo26n.pt y best.pt es fundamental:
+
+yolo26n.pt es un modelo preentrenado oficial de la familia YOLO26, versión nano.  Es ligero, rápido y entrenado en un dataset grande como COCO. Se usa como punto de partida (transfer learning) para entrenar tu modelo personalizado. 
+best.pt es el modelo que tú entrenaste con tus datos.  Contiene los pesos de la época donde tu modelo tuvo el mejor rendimiento en el conjunto de validación. Representa el modelo final optimizado para tu tarea específica.
+
+  En resumen:
+Usas yolo26n.pt para empezar el entrenamiento. 
+Obtienes best.pt como resultado final del entrenamiento, ya adaptado a tus necesidades. 
