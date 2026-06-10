@@ -52,7 +52,7 @@ def visualizar_etiquetas_yolo(ruta_imagen, ruta_etiqueta):
     plt.show()
 
 if __name__ == "__main__":
-    base_path = r'C:\Users\cripe\Desktop\GANADO'
+    base_path = r'RUTA-BASE-DE-DATOS'
     
     # Definimos rutas
     images_path = os.path.join(base_path, 'images', 'val')
