@@ -1,0 +1,26 @@
+{
+  "version": "5.0.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "ganado",
+      "points": [
+        [
+          3263.8871231999997,
+          0.0
+        ],
+        [
+          3563.7571007999995,
+          159.19507199999998
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "Copia de DJI_20251028115605_0307_Zenmuse-L1-mission.JPG",
+  "imageData": null,
+  "imageHeight": 3648,
+  "imageWidth": 5472
+}
